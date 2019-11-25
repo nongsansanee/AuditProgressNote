@@ -23,20 +23,22 @@
             </div>
         </div>
         <div class="row">
-            <div class="col col-lg-12">
-                <div class="form-group">
-                    <label for="exampleInputPassword1">เลือกชื่อหอผู้ป่วย</label>
-                    <select id="list_ward" v-model="ward">                   
-                        <option value="1">อัษฎางค์ 6 เหนือ</option>
-                        <option value="2">อัษฎางค์ 6 ใต้</option>
-                        <option value="3">อัษฎางค์ 9 เหนือ</option>
-                        <option value="4">อัษฎางค์ 9 ใต้</option>
+        <div class="col col-lg-2">            
+                    <label for="exampleInputPassword1">เลือกชื่อหอผู้ป่วย :</label>
+            </div>
+            <div class="col col-lg-4"> 
+                    <select id="list_ward" class="form-control" name="ward" v-model="ward"> 
+                    @foreach($wards as $ward)    
+                     
+                            <option value="{{$ward['id']}}">{{ $ward['name']}}</option>
+                         
+                    @endforeach
                     </select>
-                </div>
+           
             </div>
 
         </div>
-        <div class="row">
+        <div class="row mt-3">
                 <table id="DoctorTable" class="table table-striped">
                     <thead>
                             <tr>
@@ -65,7 +67,7 @@
                     </tbody>
                 </table>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">บันทึก</button>
 
       <!-- @{{ doctors }} -->
     </form>

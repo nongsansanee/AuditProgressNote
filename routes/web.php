@@ -16,7 +16,13 @@ Route::get('/', function () {
 });
 
 Route::get('/show_doctor', function () {
-    return view('show_doctor');
+    $wards[] = ['id'=>1,'name'=>'อัษฎางค์ 6 เหนือ'];
+    $wards[] = ['id'=>2,'name'=>'อัษฎางค์ 6 ใต้'];
+    $wards[] = ['id'=>3,'name'=>'อัษฎางค์ 9 เหนือ'];
+    $wards[] = ['id'=>4,'name'=>'อัษฎางค์ 9 ใต้'];
+
+  
+    return view('show_doctor')->with(['wards'=>$wards]);
 });
 
 Route::get('/add_progress', function () {
