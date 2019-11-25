@@ -187,6 +187,27 @@
         </div>
 
         <div class="row"  style="background-color:#D3F3D7"  v-if="checkNote == 1 ">
+             <div class="col col-lg-3" v-if="checkWriteResident == true ">    
+                <input type="radio" name="dateComplete"  value="1">
+                <label  for="exampleRadios1">
+                    มีวันที่และอ่านออก
+                </label>
+            </div>
+            <div class="col col-lg-3" v-if="checkWriteResident == true ">    
+                <input type="radio" name="dateComplete"  value="2">
+                <label  for="exampleRadios1">
+                    มีวันที่แต่อ่านไม่ออก
+                </label>
+            </div>
+            <div class="col col-lg-3" v-if="checkWriteResident == true ">    
+                <input type="radio" name="dateComplete"  value="3">
+                <label  for="exampleRadios1">
+                    ไม่มีวันที่
+                </label>
+            </div>
+        </div>
+
+        <div class="row"  style="background-color:#D3F3D7"  v-if="checkNote == 1 ">
              <div class="col col-lg-3">    
                 <input type="checkbox" name="writeUnitOther"  value="1">
                 <label  for="exampleRadios1">
