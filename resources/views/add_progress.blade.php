@@ -334,6 +334,33 @@
             </div>
         </div>
 
+        <div class="row"  style="background-color:#D3F3D7"  v-if="checkNote == 1 ">
+             <div class="col col-lg-3">    
+                <input type="checkbox" name="writeResident" v-model="checkProblem" value="5">
+                <label  for="exampleRadios1">
+                    Problem List
+                </label>
+            </div>
+            <div class="col col-lg-3" v-if="checkProblem == true ">    
+                <input type="radio" name="checkProblemDetail"  value="1">
+                <label  for="exampleRadios1">
+                    มี complete
+                </label>
+            </div>
+            <div class="col col-lg-3" v-if="checkProblem == true ">    
+                <input type="radio" name="checkProblemDetail"  value="2">
+                <label  for="exampleRadios1">
+                     มี แต่ไม่ complete
+                </label>
+            </div>
+            <div class="col col-lg-3" v-if="checkProblem == true ">    
+                <input type="radio" name="checkProblemDetail"  value="3">
+                <label  for="exampleRadios1">
+                    ไม่มี
+                </label>
+            </div>
+        </div>
+
         <div class="row"  style="background-color:#9BDAA5"  v-if="checkNote == 1 ">
              <div class="col col-lg-3"> 
                 <label  for="exampleRadios1">
@@ -394,7 +421,8 @@ var app = new Vue({
             checkWriteExtern:0,
             checkMDSign:0,
             checkWriteOther:0,
-            completeNote:0
+            completeNote:0,
+            checkProblem:0,
           
             
         },

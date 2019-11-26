@@ -19,6 +19,7 @@
     </div>
     <div class="w-full md:w-1/2 xl:w-1/4 h-10 bg-green-400">  
     </div>
+   
   </div>
    
 </body>
