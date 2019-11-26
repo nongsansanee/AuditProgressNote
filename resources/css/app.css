@@ -1,0 +1,9 @@
+@tailwind base;
+
+@tailwind components;
+
+.btn{
+    @apply p-2 border rounded-lg border-green-800 bg-white  uppercase;
+}
+
+@tailwind utilities;

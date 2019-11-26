@@ -11,9 +11,15 @@
 |
 */
 
+Route::get('/test', function () {
+    return view('test');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
 
 Route::get('/show_doctor', function () {
     $wards[] = ['id'=>1,'name'=>'อัษฎางค์ 6 เหนือ'];
