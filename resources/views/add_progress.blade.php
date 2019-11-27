@@ -161,6 +161,47 @@
           </div>
         </div>
 
+        <div class="row"  style="background-color:#D3F3D7" v-if="patient.length !== 0" >
+             <div class="col col-lg-3">    
+                <input type="checkbox" name="writeResident" v-model="checkProblem" value="5">
+                <label  for="exampleRadios1">
+                    Problem List
+                </label>
+            </div>
+            <div class="col col-lg-3" v-if="checkProblem == true ">    
+                <input type="radio" name="checkProblemDetail" v-model="checkProblemDetail" value="1">
+                <label  for="exampleRadios1">
+                    ไม่มี
+                </label>
+            </div>
+            <div class="col col-lg-3" v-if="checkProblem == true ">    
+                <input type="radio" name="checkProblemDetail" v-model="checkProblemDetail" value="2">
+                <label  for="exampleRadios1">
+                    มี complete
+                </label>
+            </div>
+            <div class="col col-lg-3" v-if="checkProblem == true ">    
+                <input type="radio" name="checkProblemDetail" v-model="checkProblemDetail"  value="3">
+                <label  for="exampleRadios1">
+                     มี แต่ไม่ complete โปรดระบุ
+                </label>
+            </div>
+          
+        </div>
+
+        <div class="row"  style="background-color:#D3F3D7; height: 80px"  v-if="checkProblemDetail==3 &&checkProblem == true  ">
+             <div class="col col-lg-3"> 
+                <label  for="exampleRadios1">
+                
+                </label>   
+            </div>
+            <div class="col col-lg-3"> 
+                
+            </div>
+            <div class="col col-lg-6"> 
+                <textarea class="form-control" id="ProblemListDetail" rows="2"></textarea>
+            </div>
+        </div>
 
         <div class="row"  style="background-color:#D3F3D7"  v-if="patient.length !== 0">
              <div class="col col-lg-3">    
@@ -334,32 +375,7 @@
             </div>
         </div>
 
-        <div class="row"  style="background-color:#D3F3D7"  v-if="checkNote == 1 ">
-             <div class="col col-lg-3">    
-                <input type="checkbox" name="writeResident" v-model="checkProblem" value="5">
-                <label  for="exampleRadios1">
-                    Problem List
-                </label>
-            </div>
-            <div class="col col-lg-3" v-if="checkProblem == true ">    
-                <input type="radio" name="checkProblemDetail"  value="1">
-                <label  for="exampleRadios1">
-                    มี complete
-                </label>
-            </div>
-            <div class="col col-lg-3" v-if="checkProblem == true ">    
-                <input type="radio" name="checkProblemDetail"  value="2">
-                <label  for="exampleRadios1">
-                     มี แต่ไม่ complete
-                </label>
-            </div>
-            <div class="col col-lg-3" v-if="checkProblem == true ">    
-                <input type="radio" name="checkProblemDetail"  value="3">
-                <label  for="exampleRadios1">
-                    ไม่มี
-                </label>
-            </div>
-        </div>
+      
 
         <div class="row"  style="background-color:#9BDAA5"  v-if="checkNote == 1 ">
              <div class="col col-lg-3"> 
@@ -423,6 +439,7 @@ var app = new Vue({
             checkWriteOther:0,
             completeNote:0,
             checkProblem:0,
+            checkProblemDetail:0,
           
             
         },
