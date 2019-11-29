@@ -1,5 +1,5 @@
 # 1. client side  
-  * npm i vue --save-dev
+  ## 1.1 npm i vue --save-dev
 # https://inertiajs.com/
 ```
 import { InertiaApp } from '@inertiajs/inertia-vue'
