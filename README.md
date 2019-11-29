@@ -28,13 +28,30 @@
      ```
 
 # 3. set server side 
- * composer require inertiajs/inertia-laravel
+ * อ่านที่ https://inertiajs.com/server-side-setup
+ ## 3.1 composer require inertiajs/inertia-laravel
 
-# /views  create file app.blade.php
-# web.php
+ ## 3.2 setup the root template  โดย   create file /views/app.blade.php
+    แล้วใส่  code ตามคู่มือ ดังนี้
+     ```
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
+        <script src="{{ mix('/js/app.js') }}" defer></script>
+      </head>
+      <body>
+        @inertia
+      </body>
+    </html>
+     ```
+# 4. ทดลอง สร้าง route ที่ web.php
 ```
   use Inertia\Inertia;
  Route::get('/welcome', function () {
     return Inertia::render('Welcome',[]);
 });
 ```
+# 5. npm run dev
