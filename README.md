@@ -1,4 +1,4 @@
-# client side  
+# 1. client side  
   * npm i vue --save-dev
 # https://inertiajs.com/
 ```
@@ -22,7 +22,7 @@ new Vue({
 
 # ใน webpack mix.js('resources/js/app.js','public/js') 
 
-# server side 
+# 2.server side 
  * composer require inertiajs/inertia-laravel
 
 # /views  create file app.blade.php
