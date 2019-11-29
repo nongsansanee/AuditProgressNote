@@ -21,6 +21,11 @@
         }).$mount(app)
         ```
    ## 2.3 ทดลอง สร้าง floder/file.vue  ใน /resources/js/  Ext.   /Pages/Welcome.vue
+        <template>
+         <div>
+            <h1>Welcome</h1>
+         </div>
+        </template>
 
    ## 2.4 config  ใน webpack.mix.js เพื่อให้ compile js 
     ```
