@@ -3,7 +3,7 @@
    * อ่านที่ https://inertiajs.com/client-side-setup
    ## 2.1 npm install @inertiajs/inertia @inertiajs/inertia-vue
    ## 2.2 Initialize app โดย เพิ่ม code ที่ /resources/js/app.js
-        ```
+        
         import { InertiaApp } from '@inertiajs/inertia-vue'
         import Vue from 'vue'
 
@@ -19,7 +19,7 @@
             },
           }),
         }).$mount(app)
-        ```
+        
    ## 2.3 ทดลอง สร้าง floder/file.vue  ใน /resources/js/  Ext.   /Pages/Welcome.vue
         <template>
          <div>
@@ -28,9 +28,11 @@
         </template>
 
    ## 2.4 config  ใน webpack.mix.js เพื่อให้ compile js 
-    ```
+    
+    ...
     mix.js('resources/js/app.js','public/js')
-     ```
+    ...
+    
 
 # 3. set server side 
  * อ่านที่ https://inertiajs.com/server-side-setup
@@ -38,7 +40,7 @@
 
  ## 3.2 setup the root template  โดย   create file /views/app.blade.php
     แล้วใส่  code ตามคู่มือ ดังนี้
-     ```
+     
     <!DOCTYPE html>
     <html>
       <head>
@@ -51,12 +53,12 @@
         @inertia
       </body>
     </html>
-     ```
+    
 # 4. ทดลอง สร้าง route ที่ web.php
-```
+
   use Inertia\Inertia;
  Route::get('/welcome', function () {
     return Inertia::render('Welcome',[]);
 });
-```
+
 # 5. npm run dev
