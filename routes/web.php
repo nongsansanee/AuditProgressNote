@@ -1,5 +1,5 @@
 <?php
-
+use Inertia\Inertia;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/welcome', function () {
+    return Inertia::render('Welcome',[]);
+});
 
 Route::get('/test', function () {
     return view('test');

@@ -10,6 +10,8 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "@inertiajs/inertia": "^0.1.7",
+        "@inertiajs/inertia-vue": "^0.1.2",
         "axios": "^0.19",
         "cross-env": "^5.1",
         "laravel-mix": "^4.0.7",
@@ -19,6 +21,8 @@
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
-        "tailwindcss": "^1.1.4"
+        "tailwindcss": "^1.1.4",
+        "vue": "^2.6.10",
+        "vue-template-compiler": "^2.6.10"
     }
 }
