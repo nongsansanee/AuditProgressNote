@@ -1,3 +1,4 @@
+# **การติดตั้ง  inertiajs (Framework adapters)**
 # 1. npm i vue --save-dev
 # 2. set client side 
    * อ่านที่ https://inertiajs.com/client-side-setup
