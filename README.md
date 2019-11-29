@@ -55,10 +55,11 @@
     </html>
     
 # 4. ทดลอง สร้าง route ที่ web.php
-
+```javascript
   use Inertia\Inertia;
- Route::get('/welcome', function () {
-    return Inertia::render('Welcome',[]);
-});
+  Route::get('/welcome', function () {
+     return Inertia::render('Welcome',[]);
+  });
+  ```
 
 # 5. npm run dev
