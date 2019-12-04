@@ -1,4 +1,4 @@
-# **การติดตั้ง  inertiajs (Framework adapters)**
+# **การติดตั้ง  inertiajs (Framework adapters) **
 # 1. npm i vue --save-dev
 # 2. set client side 
    * อ่านที่ https://inertiajs.com/client-side-setup
@@ -22,13 +22,33 @@
         }).$mount(app)
         
      ## 2.3 ทดลอง สร้าง floder/file.vue  ใน /resources/js/  Ext.   /Pages/Welcome.vue
+        ```
         <template>
          <div>
             <h1>Welcome</h1>
          </div>
         </template>
+        ```
+     ## 2.4 ทดลอง สร้าง component Navbar.vue ใน /resources/js/Components/  Ext.   Navbar.vue
+        copy code จาก  https://tailwindcss.com/components/navigation  
+        
+     ## 2.5 แก้ไข  /Pages/Welcome.vue เพื่อเรียกใช้งาน component Navbar
+     ```
+         <template>
+             <div>
+                 <navbar></navbar>
+             </div>
 
-     ## 2.4 config  ใน webpack.mix.js เพื่อให้ compile js 
+        </template>
+        <script>
+            import Navbar from "../Components/Navbar"
+            export default {
+               components:{Navbar},
+            }
+        </script>
+     ```
+
+     ## 2.6 config  ใน webpack.mix.js เพื่อให้ compile js 
     
     ...
     mix.js('resources/js/app.js','public/js')
