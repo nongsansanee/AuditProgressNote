@@ -163,24 +163,24 @@
 
         <div class="row"  style="background-color:#D3F3D7" v-if="patient.length !== 0" >
              <div class="col col-lg-3">    
-                <input type="checkbox" name="writeResident" v-model="checkProblem" value="5">
+                <!-- <input type="checkbox" name="writeResident" v-model="checkProblem" value="5"> -->
                 <label  for="exampleRadios1">
                     Problem List
                 </label>
             </div>
-            <div class="col col-lg-3" v-if="checkProblem == true ">    
+            <div class="col col-lg-3" >    
                 <input type="radio" name="checkProblemDetail" v-model="checkProblemDetail" value="1">
                 <label  for="exampleRadios1">
                     ไม่มี
                 </label>
             </div>
-            <div class="col col-lg-3" v-if="checkProblem == true ">    
+            <div class="col col-lg-3" >    
                 <input type="radio" name="checkProblemDetail" v-model="checkProblemDetail" value="2">
                 <label  for="exampleRadios1">
                     มี complete
                 </label>
             </div>
-            <div class="col col-lg-3" v-if="checkProblem == true ">    
+            <div class="col col-lg-3" >    
                 <input type="radio" name="checkProblemDetail" v-model="checkProblemDetail"  value="3">
                 <label  for="exampleRadios1">
                      มี แต่ไม่ complete โปรดระบุ
@@ -189,7 +189,7 @@
           
         </div>
 
-        <div class="row"  style="background-color:#D3F3D7; height: 80px"  v-if="checkProblemDetail==3 &&checkProblem == true  ">
+        <div class="row"  style="background-color:#D3F3D7; height: 80px"  v-if="checkProblemDetail==3  ">
              <div class="col col-lg-3"> 
                 <label  for="exampleRadios1">
                 
@@ -204,6 +204,12 @@
         </div>
 
         <div class="row"  style="background-color:#D3F3D7"  v-if="patient.length !== 0">
+            <div class="col col-lg-3">    
+                <!-- <input type="checkbox" name="writeResident" v-model="checkProblem" value="5"> -->
+                <label  for="exampleRadios1">
+                    Progress Note
+                </label>
+            </div>
              <div class="col col-lg-3">    
                 <input type="radio" name="checkNote" v-model="checkNote" value="1">
                 <label  for="exampleRadios1">
@@ -218,187 +224,114 @@
             </div>
         </div>
 
-        <div class="row"  style="background-color:#D3F3D7"  v-if="checkNote == 1 ">
-             <div class="col col-lg-6">    
-                <label  for="exampleRadios1">
-                    วันที่แพทย์เขียน Progress Note:
-                </label>
-                <input type="date" name="dateWrite"  >
-            </div>
-            
-        </div>
+       <!-- content เขียนโดยหน่วยอื่น -->
 
-        <div class="row"  style="background-color:#D3F3D7"  v-if="checkNote == 1 ">
-             <div class="col col-lg-3" >    
-               
+        <div class="row"  style="background-color:#9BDAA5"  v-if="checkNote == 1 ">
+             <div class="col col-lg-3">    
+                <input type="checkbox" name="writeUnitOther" v-model="writeUnitOther"  value="1">
+                <label  for="exampleRadios1">
+                    เขียนโดยหน่วยอื่น
+                </label>
+            </div>
+        </div>
+       
+
+        <div class="row"  style="background-color:#D3F3D7"  v-if="writeUnitOther == 1 ">
+             <div class="col col-lg-3"   >    
+              - วันที่<input type="date" name="dateWriteOther"  >
             </div>
              <div class="col col-lg-3" >    
-                <input type="radio" name="dateComplete"  value="1">
+                <input type="radio"  v-model="dateCompleteOther"  value="1">
                 <label  for="exampleRadios1">
                     มีวันที่และอ่านออก
                 </label>
+                
             </div>
             <div class="col col-lg-3" >    
-                <input type="radio" name="dateComplete"  value="2">
+                <input type="radio"  v-model="dateCompleteOther" value="2">
                 <label  for="exampleRadios1">
                     มีวันที่แต่อ่านไม่ออก
                 </label>
             </div>
             <div class="col col-lg-3">    
-                <input type="radio" name="dateComplete"  value="3">
+                <input type="radio"  v-model="dateCompleteOther"  value="3">
                 <label  for="exampleRadios1">
                     ไม่มีวันที่
                 </label>
             </div>
         </div>
 
-        <div class="row"  style="background-color:#D3F3D7"  v-if="checkNote == 1 ">
+        <div class="row"  style="background-color:#D3F3D7"  v-if="writeUnitOther == 1 ">
              <div class="col col-lg-3">    
-                <input type="checkbox" name="writeUnitOther"  value="1">
+               
                 <label  for="exampleRadios1">
-                    เขียนโดยหน่วยอื่น
+                - MD Sign
                 </label>
             </div>
-        </div>
-
-        <div class="row"  style="background-color:#D3F3D7"  v-if="checkNote == 1 ">
-             <div class="col col-lg-3">    
-                <input type="checkbox" name="writeResident" v-model="checkWriteResident" value="2">
-                <label  for="exampleRadios1">
-                    เขียนโดย resident ward
-                </label>
-            </div>
-            <div class="col col-lg-3" v-if="checkWriteResident == true ">    
-                <input type="radio" name="residentID"  value="1">
-                <label  for="exampleRadios1">
-                    มีเลข ว และอ่านออก
-                </label>
-            </div>
-            <div class="col col-lg-3" v-if="checkWriteResident == true ">    
-                <input type="radio" name="residentID"  value="2">
-                <label  for="exampleRadios1">
-                    มีเลข ว แต่อ่านไม่ออก
-                </label>
-            </div>
-            <div class="col col-lg-3" v-if="checkWriteResident == true ">    
-                <input type="radio" name="residentID"  value="3">
-                <label  for="exampleRadios1">
-                    ไม่มีเลข ว 
-                </label>
-            </div>
-        </div>
-
-        <div class="row"  style="background-color:#D3F3D7"  v-if="checkNote == 1 ">
-             <div class="col col-lg-3">    
-                <input type="checkbox" name="writeExtern" v-model="checkWriteExtern"  value="3">
-                <label  for="exampleRadios1">
-                    เขียนโดย Extern
-                </label>
-            </div>
-            <div class="col col-lg-3" v-if="checkWriteExtern == true ">    
-                <input type="radio" name="MDSign"  v-model="checkMDSign" value="1">
+            <div class="col col-lg-3" >    
+                <input type="radio"  v-model="checkMDSignOther" value="1">
                 <label  for="exampleRadios1">
                     มี MD sign
                 </label>
             </div>
-            <div class="col col-lg-3" v-if="checkWriteExtern == true ">    
-                <input type="radio" name="MDSign" v-model="checkMDSign" value="2">
+            <div class="col col-lg-3" >    
+                <input type="radio"  v-model="checkMDSignOther" value="2">
                 <label  for="exampleRadios1">
                     ไม่มี MD sign
                 </label>
             </div>
         </div>
-        
-        
-        <div class="row"  style="background-color:#D3F3D7"  v-if="checkMDSign == 1 && checkNote == 1 ">
+
+
+        <div class="row"  style="background-color:#D3F3D7"  v-if="checkMDSignOther == 1 && writeUnitOther == 1 ">
+             <div class="col col-lg-3" >    
+             <label  for="exampleRadios1">
+                   
+                </label>
+            </div>
+             <div class="col col-lg-3" >    
+                <input type="radio" name="waridOther"  value="1">
+                <label  for="exampleRadios1">
+                    มีเลข ว อ่านออก
+                </label>
+            </div>
+            <div class="col col-lg-3" >    
+                <input type="radio" name="waridOther"  value="2">
+                <label  for="exampleRadios1">
+                  มีเลข ว อ่านไม่ออก
+                </label>
+            </div>
+            <div class="col col-lg-3">    
+                <input type="radio" name="waridOther"  value="3">
+                <label  for="exampleRadios1">
+                    ไม่มีเลข ว
+                </label>
+            </div>
+        </div>
+
+        <div class="row"  style="background-color:#D3F3D7"  v-if="writeUnitOther == 1 ">
              <div class="col col-lg-3">    
-              
+               
                 <label  for="exampleRadios1">
-                  
+                - สรุป Progress Note
                 </label>
             </div>
-            <div class="col col-lg-3">    
-                <input type="radio" name="mdID"  value="1">
-                <label  for="exampleRadios1">
-                    มีเลข ว และอ่านออก
-                </label>
-            </div>
-            <div class="col col-lg-3">    
-                <input type="radio" name="mdID"  value="2">
-                <label  for="exampleRadios1">
-                    มีเลข ว แต่อ่านไม่ออก
-                </label>
-            </div>
-            <div class="col col-lg-3">    
-                <input type="radio" name="mdID"  value="3">
-                <label  for="exampleRadios1">
-                    ไม่มีเลข ว 
-                </label>
-            </div>
-        </div>
-
-
-        <div class="row"  style="background-color:#D3F3D7"  v-if="checkNote == 1 ">
-             <div class="col col-lg-9">    
-                <input type="checkbox" name="writeOther" v-model="checkWriteOther"  value="4">
-                <label  for="exampleRadios1">
-                    เขียนโดยผู้อื่น โปรดระบุ
-                </label>
-                <input type="text" name="writeOtherDetail" size="50">          
-            </div>
-           
-        </div>
-        
-        
-        <div class="row"  style="background-color:#D3F3D7"  v-if="checkWriteOther == true && checkNote == 1 ">
-             <div class="col col-lg-3">    
-                <label  for="exampleRadios1">
-                </label>
-            </div>
-            <div class="col col-lg-3">    
-                <input type="radio" name="otherID"  value="1">
-                <label  for="exampleRadios1">
-                    มีเลข ว และอ่านออก
-                </label>
-            </div>
-            <div class="col col-lg-3">    
-                <input type="radio" name="otherID"  value="2">
-                <label  for="exampleRadios1">
-                    มีเลข ว แต่อ่านไม่ออก
-                </label>
-            </div>
-            <div class="col col-lg-3">    
-                <input type="radio" name="otherID"  value="3">
-                <label  for="exampleRadios1">
-                    ไม่มีเลข ว 
-                </label>
-            </div>
-        </div>
-
-      
-
-        <div class="row"  style="background-color:#9BDAA5"  v-if="checkNote == 1 ">
-             <div class="col col-lg-3"> 
-                <label  for="exampleRadios1">
-                   สรุป Progress Note
-                </label>   
-            </div>
-            <div class="col col-lg-3"> 
-                <input type="radio" name="completeNote" v-model="completeNote" value="1" >
+            <div class="col col-lg-3" >    
+                <input type="radio"   v-model="checkNoteOther" value="1">
                 <label  for="exampleRadios1">
                     complete
                 </label>
             </div>
-            <div class="col col-lg-3"> 
-                <input type="radio" name="completeNote" v-model="completeNote" value="2"  >
+            <div class="col col-lg-3" >    
+                <input type="radio"  v-model="checkNoteOther" value="2">
                 <label  for="exampleRadios1">
                     not complete โปรดระบุ
                 </label>
             </div>
         </div>
-        
 
-        <div class="row"  style="background-color:#9BDAA5; height: 80px"  v-if="checkNote == 1 && completeNote==2 ">
+        
+        <div class="row"  style="background-color:#D3F3D7; height: 80px"  v-if="writeUnitOther == 1 && checkNoteOther==2 ">
              <div class="col col-lg-3"> 
                 <label  for="exampleRadios1">
                 
@@ -408,11 +341,377 @@
                 
             </div>
             <div class="col col-lg-6"> 
-                <textarea class="form-control" id="completeNoteDetail" rows="2"></textarea>
+                <textarea class="form-control" id="completeNoteOtherDetail" rows="2"></textarea>
+            </div>
+        </div>
+    
+         <!-- content เขียนโดย resident ward -->
+       
+         <div class="row"  style="background-color:#9BDAA5"  v-if="checkNote == 1 ">
+             <div class="col col-lg-3">    
+                <input type="checkbox"  v-model="writeResident"  value="1">
+                <label  for="exampleRadios1">
+                    เขียนโดย resident ward
+                </label>
+            </div>
+        </div>
+       
+
+        <div class="row"  style="background-color:#D3F3D7"  v-if="writeResident == 1 ">
+             <div class="col col-lg-3"   >    
+              - วันที่<input type="date" name="dateWriteResident"  >
+            </div>
+             <div class="col col-lg-3" >    
+                <input type="radio"  v-model="dateCompleteResident"  value="1">
+                <label  for="exampleRadios1">
+                    มีวันที่และอ่านออก
+                </label>
+                
+            </div>
+            <div class="col col-lg-3" >    
+                <input type="radio"  v-model="dateCompleteResident" value="2">
+                <label  for="exampleRadios1">
+                    มีวันที่แต่อ่านไม่ออก
+                </label>
+            </div>
+            <div class="col col-lg-3">    
+                <input type="radio"  v-model="dateCompleteResident"  value="3">
+                <label  for="exampleRadios1">
+                    ไม่มีวันที่
+                </label>
             </div>
         </div>
 
-        <div class="row text-center mt-5" id="btn-save" v-if="completeNote !== 0 || checkNote == 2">
+        <div class="row"  style="background-color:#D3F3D7"  v-if="writeResident == 1 ">
+             <div class="col col-lg-3">    
+               
+                <label  for="exampleRadios1">
+                - MD Sign
+                </label>
+            </div>
+            <div class="col col-lg-3" >    
+                <input type="radio"   v-model="checkMDSignResident" value="1">
+                <label  for="exampleRadios1">
+                    มี MD sign
+                </label>
+            </div>
+            <div class="col col-lg-3" >    
+                <input type="radio"  v-model="checkMDSignResident" value="2">
+                <label  for="exampleRadios1">
+                    ไม่มี MD sign
+                </label>
+            </div>
+        </div>
+
+
+        <div class="row"  style="background-color:#D3F3D7"  v-if="writeResident == 1 && checkMDSignResident == 1">
+             <div class="col col-lg-3" >    
+             <label  for="exampleRadios1">
+                   
+                </label>
+            </div>
+             <div class="col col-lg-3" >    
+                <input type="radio" name="waridResident"  value="1">
+                <label  for="exampleRadios1">
+                    มีเลข ว อ่านออก
+                </label>
+            </div>
+            <div class="col col-lg-3" >    
+                <input type="radio" name="waridResident"  value="2">
+                <label  for="exampleRadios1">
+                  มีเลข ว อ่านไม่ออก
+                </label>
+            </div>
+            <div class="col col-lg-3">    
+                <input type="radio" name="waridResident"  value="3">
+                <label  for="exampleRadios1">
+                    ไม่มีเลข ว
+                </label>
+            </div>
+        </div>
+
+        <div class="row"  style="background-color:#D3F3D7"  v-if="writeResident == 1 ">
+             <div class="col col-lg-3">    
+               
+                <label  for="exampleRadios1">
+                - สรุป Progress Note
+                </label>
+            </div>
+            <div class="col col-lg-3" >    
+                <input type="radio"   v-model="checkNoteResident" value="1">
+                <label  for="exampleRadios1">
+                    complete
+                </label>
+            </div>
+            <div class="col col-lg-3" >    
+                <input type="radio"  v-model="checkNoteResident" value="2">
+                <label  for="exampleRadios1">
+                    not complete โปรดระบุ
+                </label>
+            </div>
+        </div>
+
+        
+        <div class="row"  style="background-color:#D3F3D7; height: 80px"  v-if="writeResident == 1 && checkNoteResident==2 ">
+             <div class="col col-lg-3"> 
+                <label  for="exampleRadios1">
+                
+                </label>   
+            </div>
+            <div class="col col-lg-3"> 
+                
+            </div>
+            <div class="col col-lg-6"> 
+                <textarea class="form-control" id="completeNoteResidentDetail" rows="2"></textarea>
+            </div>
+        </div>
+    
+
+       <!-- เขียนโดย extern -->
+       <div class="row"  style="background-color:#9BDAA5"  v-if="checkNote == 1 ">
+             <div class="col col-lg-3">    
+                <input type="checkbox"  v-model="writeExtern"  value="1">
+                <label  for="exampleRadios1">
+                    เขียนโดย Extern
+                </label>
+            </div>
+        </div>
+       
+
+        <div class="row"  style="background-color:#D3F3D7"  v-if="writeExtern == 1 ">
+             <div class="col col-lg-3"   >    
+              - วันที่<input type="date" name="dateWriteExtern"  >
+            </div>
+             <div class="col col-lg-3" >    
+                <input type="radio"  v-model="dateCompleteExtern"  value="1">
+                <label  for="exampleRadios1">
+                    มีวันที่และอ่านออก
+                </label>
+                
+            </div>
+            <div class="col col-lg-3" >    
+                <input type="radio"  v-model="dateCompleteExtern" value="2">
+                <label  for="exampleRadios1">
+                    มีวันที่แต่อ่านไม่ออก
+                </label>
+            </div>
+            <div class="col col-lg-3">    
+                <input type="radio"  v-model="dateCompleteExtern"  value="3">
+                <label  for="exampleRadios1">
+                    ไม่มีวันที่
+                </label>
+            </div>
+        </div>
+
+        <div class="row"  style="background-color:#D3F3D7"  v-if="writeExtern == 1 ">
+             <div class="col col-lg-3">    
+               
+                <label  for="exampleRadios1">
+                - MD Sign
+                </label>
+            </div>
+            <div class="col col-lg-3" >    
+                <input type="radio"  v-model="checkMDSignExtern" value="1">
+                <label  for="exampleRadios1">
+                    มี MD sign
+                </label>
+            </div>
+            <div class="col col-lg-3" >    
+                <input type="radio"  v-model="checkMDSignExtern" value="2">
+                <label  for="exampleRadios1">
+                    ไม่มี MD sign
+                </label>
+            </div>
+        </div>
+
+
+        <div class="row"  style="background-color:#D3F3D7"  v-if="writeExtern == 1 && checkMDSignExtern == 1">
+             <div class="col col-lg-3" >    
+             <label  for="exampleRadios1">
+                   
+                </label>
+            </div>
+             <div class="col col-lg-3" >    
+                <input type="radio" name="waridExtern"  value="1">
+                <label  for="exampleRadios1">
+                    มีเลข ว อ่านออก
+                </label>
+            </div>
+            <div class="col col-lg-3" >    
+                <input type="radio" name="waridExtern"  value="2">
+                <label  for="exampleRadios1">
+                  มีเลข ว อ่านไม่ออก
+                </label>
+            </div>
+            <div class="col col-lg-3">    
+                <input type="radio" name="waridExtern"  value="3">
+                <label  for="exampleRadios1">
+                    ไม่มีเลข ว
+                </label>
+            </div>
+        </div>
+
+        <div class="row"  style="background-color:#D3F3D7"  v-if="writeExtern == 1 ">
+             <div class="col col-lg-3">    
+               
+                <label  for="exampleRadios1">
+                - สรุป Progress Note
+                </label>
+            </div>
+            <div class="col col-lg-3" >    
+                <input type="radio"   v-model="checkNoteExtern" value="1">
+                <label  for="exampleRadios1">
+                    complete
+                </label>
+            </div>
+            <div class="col col-lg-3" >    
+                <input type="radio"  v-model="checkNoteExtern" value="2">
+                <label  for="exampleRadios1">
+                    not complete โปรดระบุ
+                </label>
+            </div>
+        </div>
+
+        
+        <div class="row"  style="background-color:#D3F3D7; height: 80px"  v-if="writeExtern == 1 && checkNoteExtern==2 ">
+             <div class="col col-lg-3"> 
+                <label  for="exampleRadios1">
+                
+                </label>   
+            </div>
+            <div class="col col-lg-3"> 
+                
+            </div>
+            <div class="col col-lg-6"> 
+                <textarea class="form-control" id="completeNoteExternDetail" rows="2"></textarea>
+            </div>
+        </div>
+       
+
+       <!-- เขียนโดยผู้อื่น -->
+
+        <div class="row"  style="background-color:#9BDAA5"  v-if="checkNote == 1 ">
+             <div class="col col-lg-9">    
+                <input type="checkbox" name="writeOther" v-model="checkWriteAnother"  value="1">
+                <label  for="exampleRadios1">
+                    เขียนโดยผู้อื่น โปรดระบุ
+                </label>
+                <input type="text" name="writeOtherDetail" size="50">          
+            </div>
+           
+        </div>
+        
+        <div class="row"  style="background-color:#D3F3D7"  v-if="checkWriteAnother == 1 ">
+             <div class="col col-lg-3"   >    
+              - วันที่<input type="date" name="dateWriteAnother"  >
+            </div>
+             <div class="col col-lg-3" >    
+                <input type="radio"  v-model="dateCompleteAnother"  value="1">
+                <label  for="exampleRadios1">
+                    มีวันที่และอ่านออก
+                </label>
+                
+            </div>
+            <div class="col col-lg-3" >    
+                <input type="radio"  v-model="dateCompleteAnother" value="2">
+                <label  for="exampleRadios1">
+                    มีวันที่แต่อ่านไม่ออก
+                </label>
+            </div>
+            <div class="col col-lg-3">    
+                <input type="radio"  v-model="dateCompleteAnother"  value="3">
+                <label  for="exampleRadios1">
+                    ไม่มีวันที่
+                </label>
+            </div>
+        </div>
+
+        <div class="row"  style="background-color:#D3F3D7"  v-if="checkWriteAnother == 1 ">
+             <div class="col col-lg-3">    
+               
+                <label  for="exampleRadios1">
+                - MD Sign
+                </label>
+            </div>
+            <div class="col col-lg-3" >    
+                <input type="radio"   v-model="checkMDSignAnother" value="1">
+                <label  for="exampleRadios1">
+                    มี MD sign
+                </label>
+            </div>
+            <div class="col col-lg-3" >    
+                <input type="radio"  v-model="checkMDSignAnother" value="2">
+                <label  for="exampleRadios1">
+                    ไม่มี MD sign
+                </label>
+            </div>
+        </div>
+
+
+        <div class="row"  style="background-color:#D3F3D7"  v-if="checkWriteAnother == 1 && checkMDSignAnother == 1">
+             <div class="col col-lg-3" >    
+             <label  for="exampleRadios1">
+                   
+                </label>
+            </div>
+             <div class="col col-lg-3" >    
+                <input type="radio" name="waridAnother"  value="1">
+                <label  for="exampleRadios1">
+                    มีเลข ว อ่านออก
+                </label>
+            </div>
+            <div class="col col-lg-3" >    
+                <input type="radio" name="waridAnother"  value="2">
+                <label  for="exampleRadios1">
+                  มีเลข ว อ่านไม่ออก
+                </label>
+            </div>
+            <div class="col col-lg-3">    
+                <input type="radio" name="waridAnother"  value="3">
+                <label  for="exampleRadios1">
+                    ไม่มีเลข ว
+                </label>
+            </div>
+        </div>
+
+        <div class="row"  style="background-color:#D3F3D7"  v-if="checkWriteAnother == 1 ">
+             <div class="col col-lg-3">    
+               
+                <label  for="exampleRadios1">
+                - สรุป Progress Note
+                </label>
+            </div>
+            <div class="col col-lg-3" >    
+                <input type="radio"   v-model="checkNoteAnother" value="1">
+                <label  for="exampleRadios1">
+                    complete
+                </label>
+            </div>
+            <div class="col col-lg-3" >    
+                <input type="radio"  v-model="checkNoteAnother" value="2">
+                <label  for="exampleRadios1">
+                    not complete โปรดระบุ
+                </label>
+            </div>
+        </div>
+
+        
+        <div class="row"  style="background-color:#D3F3D7; height: 80px"  v-if="checkWriteAnother == 1 && checkNoteAnother==2 ">
+             <div class="col col-lg-3"> 
+                <label  for="exampleRadios1">
+                
+                </label>   
+            </div>
+            <div class="col col-lg-3"> 
+                
+            </div>
+            <div class="col col-lg-6"> 
+                <textarea class="form-control" id="completeNoteExternDetail" rows="2"></textarea>
+            </div>
+        </div>
+        
+
+        <div class="row text-center mt-5" id="btn-save" v-if="checkProblemDetail !== 0 || checkNote !=0">
             <div class="col col-lg-12 ">  
                  <button type="submit" class="btn btn-primary">บันทึก</button>
             </div>
@@ -432,14 +731,31 @@ var app = new Vue({
             ward: null,
             an: null,
             patient: [],
+            checkProblemDetail:0,
             checkNote:0,
             checkWriteResident:0,
             checkWriteExtern:0,
             checkMDSign:0,
             checkWriteOther:0,
-            completeNote:0,
-            checkProblem:0,
-            checkProblemDetail:0,
+            dateCompleteOther:0,
+            writeUnitOther:0,
+            checkMDSignOther:0,
+            checkNoteOther:0,
+
+            writeResident:0,
+            dateCompleteResident:0,
+            checkMDSignResident:0,
+            checkNoteResident:0,
+
+            writeExtern:0,
+            dateCompleteExtern:0,
+            checkMDSignExtern:0,
+            checkNoteExtern:0,
+
+            checkWriteAnother:0,
+            dateCompleteAnother:0,
+            checkMDSignAnother:0,
+            checkNoteAnother:0    
           
             
         },

@@ -58,6 +58,7 @@
                             <td >
                              <label for="exampleInputPassword1">เลือกสาย</label>
                                 <select id="line" >
+                                    <option>กรุณาเลือก</option>
                                     <option>A</option>
                                     <option>B</option>
                                 </select>
